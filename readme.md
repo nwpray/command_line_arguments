@@ -2,8 +2,6 @@
 
 ## Layout
 
-The portsetter project is laid out in three code portions
-
 * 1.0 - Initial Project
 * 1.1 - Change Order 1
 * 1.2 - Change Order 2
@@ -22,30 +20,28 @@ then run
 `chmod 755 install.sh`
 from the terminal and attempt install again.
 
-## Use
+## Usage
+
+To get a detailed usage list, run
+`setport -h`
+from terminal.
 
 ## Testing
 
+To run test to ensure that the program is still working, run
+`setporttest`
+in the terminal after installation
+
 ## Uninstall
 
-=== Portsetter readme ===
+To uninstall the program and its aliases, run
+`./uninstall.sh`
+from the terminal from the same directory you ran the install script from
+As of this document, the latest version is 1.3
 
----Installation---\n
-run './install.sh' command from this directory in terminal
+If you get the response
+`./uninstall.sh`
+then run
+`chmod 755 uninstall.sh`
 
-*if response is : bash: ./install.sh: Permission denied,
-run 'chmod 755 install.sh' command in terminal and try again*
-
----Use---\n
-for usage, run 'setport -h' command in terminal
-
----Testing---\n
-to run test set, run 'setporttest' command in terminal
-
----Uninstall---\n
-run './uninstall.sh' command from this directory in terminal
-
-*if response is : bash: ./uninstall.sh: Permission denied,
-run 'chmod 755 uninstall.sh' command in terminal and try again*
-
-*install and uninstall automatically restart your bash session on completion*
+### Install and Uninstall scripts will automatically restart your bash session on completion.
