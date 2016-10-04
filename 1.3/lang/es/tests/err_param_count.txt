@@ -1,0 +1,19 @@
+![ERROR]! - Se proporcionó cantidad de parámetros no válido.
+CS-3370 Port Setter.
+Uso: setport [FLAG]… [PORT]…
+Ejemplos:
+	setport -p 1234			#Establece el puerto a escuchar
+	setport --port 123		#Establece el puerto a escuchar
+	setport -h			#Muestra esta pantalla
+	setport --help			#Muestra esta pantalla
+Banderas:
+	-p,		--port		Especifique el puerto que desea escuchar.
+	-h, -?,		--help		Muestra esta ventana.
+	-!,		--about		Muestra autor / información de créditos
+	-v,		--version	Muestra la versión de la aplicación
+	-e				Utiliza variable de entorno como número de puerto, 
+					por defecto PORT
+Códigos de error:
+	1				De entrada no válido Sintaxis
+	2				Entrada inválida
+	3				Puerto fuera de rango

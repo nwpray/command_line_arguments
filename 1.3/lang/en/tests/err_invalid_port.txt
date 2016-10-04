@@ -1,0 +1,19 @@
+![ERROR]! - Invalid port number.
+CS-3370 Port Setter.
+Usage: setport [FLAG]… [PORT]…
+Examples:
+	setport -p 1234			#Sets port to listen to
+	setport --port 123		#Sets port to listen to
+	setport -h			#Displays this screen
+	setport --help			#Displays this screen
+Flags:
+	-p,		--port		Specify which port you want to listen to.
+	-h, -?,		--help		Displays this window.
+	-!,		--about		Displays author/credits information
+	-v,		--version	Displays application version
+	-e				Uses environment variable as port number, 
+					default PORT
+Error Codes:
+	1				Invalid Input Syntax
+	2				Invalid Input
+	3				Port out of range
