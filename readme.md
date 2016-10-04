@@ -11,7 +11,7 @@
 
 For installation, run
 `./install.sh`
-into the terminal from within the latest versions directory.
+in the terminal from within the latest versions directory.
 As of this documents last update it will be 1.3
 
 If you get the response, 
@@ -43,5 +43,7 @@ If you get the response
 `./uninstall.sh`
 then run
 `chmod 755 uninstall.sh`
+and run uninstall againse
 
 ### Install and Uninstall scripts will automatically restart your bash session on completion.
+### If you do not have a language defined the program will default to english. In this case all output tests will fail to do to the no language defined message being included.

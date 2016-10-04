@@ -99,14 +99,12 @@ int main(int argc, char* argv[]){
     //About
     if(flag == About){
         PrintFile(FILE_ABOUT);
-        cout << endl;
         return 0;
     }
     
     //Version
     if(flag == Version){
         PrintFile(FILE_VERSION);
-        cout << endl;
         return 0;
     }
     

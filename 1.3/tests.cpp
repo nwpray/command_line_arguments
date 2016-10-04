@@ -37,6 +37,12 @@ int main(int argc,  char* argv[]){
     RunTest("./setport", "usage.txt", CODE_SUCCESS);
     RunTest("./setport -h", "usage.txt", CODE_SUCCESS);
     RunTest("./setport --help", "usage.txt", CODE_SUCCESS);
+    RunTest("./setport -?", "usage.txt", CODE_SUCCESS);
+    RunTest("./setport -!", "about.txt", CODE_SUCCESS);
+    RunTest("./setport --about", "about.txt", CODE_SUCCESS);
+    RunTest("./setport -v", "version.txt", CODE_SUCCESS);
+    RunTest("./setport --version", "version.txt", CODE_SUCCESS);
+    RunTest("./setport -e", "tests/success_env.txt", CODE_SUCCESS);
     RunTest("./setport -p 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport --port 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport help", "tests/err_invalid_flag.txt", CODE_FAIL);
@@ -52,9 +58,16 @@ int main(int argc,  char* argv[]){
     RunTest("./setport -p 90642", "tests/err_invalid_port.txt", CODE_FAIL);
     RunTest("./setport -x 45321", "tests/err_invalid_flag.txt", CODE_FAIL);
     RunTest("./setport -P 714", "tests/err_invalid_flag.txt", CODE_FAIL);
+    RunTest("./setport -? 444", "tests/err_param_count.txt", CODE_FAIL);
+    RunTest("./setport -! 444", "tests/err_param_count.txt", CODE_FAIL);
+    RunTest("./setport --about 444", "tests/err_param_count.txt", CODE_FAIL);
+    RunTest("./setport -v 444", "tests/err_param_count.txt", CODE_FAIL);
+    RunTest("./setport --version 444", "tests/err_param_count.txt", CODE_FAIL);
+    RunTest("./setport -e 444", "tests/err_invalid_port.txt", CODE_FAIL);
+    
     
     //Remove the temporary file
-    system(("rm " + path + "/" + TEMP_FILE_NAME).c_str());
+    //system(("rm " + path + "/" + TEMP_FILE_NAME).c_str());
     
 }
 
