@@ -1,0 +1,5 @@
+La bandera no era válida.
+Se proporcionó cantidad de parámetros no válido.
+Número de puerto válido.
+Uh oh ... Algo sucedió que no puedo entender. ¡Lo siento!
+Escucha en el puerto
