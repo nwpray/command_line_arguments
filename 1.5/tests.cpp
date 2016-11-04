@@ -2,6 +2,7 @@
     Test Script For PortSetter
     Nick Pray
     CS-3370
+    co5 by epj
 */
 #include <iostream>
 #include <fstream>
