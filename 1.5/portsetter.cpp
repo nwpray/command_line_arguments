@@ -30,8 +30,8 @@ const string FLAG_ABOUT_SHORT = "-!";
 const string FLAG_VERSION = "--version";
 const string FLAG_VERSION_SHORT = "-v";
 
-const string FLAG_ENVIRONMENT= "--environment";
-const string FLAG_ENVIRONMENT_SHORT= "-e";
+const string FLAG_ENVIRONMENT= "--environment"; //co5 epj change
+const string FLAG_ENVIRONMENT_SHORT= "-e";      //co5 epj change
 
 const string ERROR_PREFIX = "![ERROR]! - ";
 
@@ -179,7 +179,7 @@ Flag ParseFlag(int argc, char* argv[]){
     };
     
     //Environment
-    if(flag == FLAG_ENVIRONMENT || flag == FLAG_ENVIRONMENT_SHORT){
+    if(flag == FLAG_ENVIRONMENT || flag == FLAG_ENVIRONMENT_SHORT){              //co5 epj change
         return Environment;
     };
     
@@ -307,7 +307,7 @@ string GetLang(){
   return "";
 }
 
-//graveyard / notes:
+//graveyard / notes by epj: 
 
 //i *think* you were supposed to say -p to tell it to set the port and then
     // -e to tell it to look at the evironment.

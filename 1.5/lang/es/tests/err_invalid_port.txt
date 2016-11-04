@@ -5,15 +5,25 @@ Ejemplos:
 	setport -p 1234			#Establece el puerto a escuchar
 	setport --port 123		#Establece el puerto a escuchar
 	setport -h			#Muestra esta pantalla
+	setport -?			#Muestra esta pantalla
 	setport --help			#Muestra esta pantalla
+	setport -!			#Muestra autor/créditos
+	setport --about 		#Muestra autor/créditos
+	setport -v			#Muestra versión
+	setport -e			#Utiliza el puerto variable de entorno para el puerto
+	setport --environment		#Utiliza el puerto variable de entorno para el puerto
+	setport -e SOME_PORT		#Utiliza SOME_PORT variable de entorno para el puerto
+	setport --environment SOME_PORT	#Utiliza SOME_PORT variable de entorno para el puerto
+	
 Banderas:
 	-p,		--port		Especifique el puerto que desea escuchar.
 	-h, -?,		--help		Muestra esta ventana.
 	-!,		--about		Muestra autor / información de créditos
 	-v,		--version	Muestra la versión de la aplicación
-	-e				Utiliza variable de entorno como número de puerto, 
+	-e,		--environment	Utiliza variable de entorno como número de puerto, 
 					por defecto PORT
 Códigos de error:
 	1				De entrada no válido Sintaxis
 	2				Entrada inválida
 	3				Puerto fuera de rango
+	

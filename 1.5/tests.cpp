@@ -14,7 +14,7 @@ void RunTest(string, string, int);
 string GetLang();
 
 const int CODE_FORMATTER = 256;
-const int CODE_SUCCESS = 0;
+int CODE_SUCCESS = 0;
 const int CODE_FAIL = 1;
 
 const string TEMP_FILE_NAME = "__temp";
@@ -43,6 +43,7 @@ int main(int argc,  char* argv[]){
     RunTest("./setport -v", "version.txt", CODE_SUCCESS);
     RunTest("./setport --version", "version.txt", CODE_SUCCESS);
     RunTest("./setport -e", "tests/success_env.txt", CODE_SUCCESS);
+    RunTest("./setport --environment", "tests/success_env.txt", CODE_SUCCESS); //co5 epj change
     RunTest("./setport -p 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport --port 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport help", "tests/err_invalid_flag.txt", CODE_FAIL);
@@ -64,6 +65,7 @@ int main(int argc,  char* argv[]){
     RunTest("./setport -v 444", "tests/err_param_count.txt", CODE_FAIL);
     RunTest("./setport --version 444", "tests/err_param_count.txt", CODE_FAIL);
     RunTest("./setport -e 444", "tests/err_invalid_port.txt", CODE_FAIL);
+    RunTest("./setport --environment 445", "tests/err_invalid_port.txt", CODE_FAIL); //co5 epj change
     
     
     //Remove the temporary file
@@ -77,7 +79,7 @@ void RunTest(string command, string check, int checkCode){
     
     //Setport
     int statusCode = system((command + " > " + path + "/" + TEMP_FILE_NAME).c_str()) / 256;
-    cout << command + " code: " << ((statusCode == checkCode) ? "Success" : "Fail") << endl;
+    cout << command + " code  : " << ((statusCode == checkCode) ? "Success" : "Fail") << endl;
     
     ifstream reader(path + "/lang/" + lang + "/" + check);
     
@@ -90,6 +92,7 @@ void RunTest(string command, string check, int checkCode){
     }
     
     reader.close();
+    
 }
 
 string GetLang(){
@@ -130,3 +133,8 @@ string GetLang(){
   
   return "";
 }
+
+//graveyard / notes by epj: 
+
+//these tests RELY on the fact that there is a lang set.
+//if not, it adds in the "defaulting to english" line. and tests fail.

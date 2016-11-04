@@ -11,15 +11,17 @@ Examples:
 	setport --about 		#Displays author/credits
 	setport -v			#Displays version
 	setport -e			#Uses environment variable PORT for port
-	setport -e SOME_PORT	#Uses environment variable SOME_PORT for port
+	setport --environment		#Uses environment variable PORT for port
+	setport -e SOME_PORT		#Uses environment variable SOME_PORT for port
+	setport --environment SOME_PORT	#Uses environment variable SOME_PORT for port
 	
 Flags:
 	-p,		--port		Specify which port you want to listen to.
 	-h, -?,		--help		Displays this window.
 	-!,		--about		Displays author/credits information
 	-v,		--version	Displays application version
-	-e				Uses environment variable as port number, 
-					default PORT
+	-e,		--environment	Uses environment variable as port number, 
+					defaulting to PORT
 Error Codes:
 	1				Invalid Input Syntax
 	2				Invalid Input

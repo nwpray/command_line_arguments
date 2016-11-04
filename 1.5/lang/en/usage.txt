@@ -19,7 +19,7 @@ Flags:
 	-h, -?,		--help		Displays this window.
 	-!,		--about		Displays author/credits information
 	-v,		--version	Displays application version
-	-e		--environment	Uses environment variable as port number, 
+	-e,		--environment	Uses environment variable as port number, 
 					defaulting to PORT
 Error Codes:
 	1				Invalid Input Syntax
