@@ -11,8 +11,7 @@ fi
 sed -i '/alias setport=/d' ~/.bash_aliases 
 sed -i '/alias setporttest=/d' ~/.bash_aliases
 
-make setport
-make tests
+make
 
 echo "alias setport=\"$PWD/setport\"" >> ~/.bash_aliases
 echo "alias setporttest=\"$PWD/tests\"" >> ~/.bash_aliases

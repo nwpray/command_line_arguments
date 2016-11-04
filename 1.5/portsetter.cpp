@@ -30,7 +30,8 @@ const string FLAG_ABOUT_SHORT = "-!";
 const string FLAG_VERSION = "--version";
 const string FLAG_VERSION_SHORT = "-v";
 
-const string FLAG_ENVIRONMENT= "-e";
+const string FLAG_ENVIRONMENT= "--environment";
+const string FLAG_ENVIRONMENT_SHORT= "-e";
 
 const string ERROR_PREFIX = "![ERROR]! - ";
 
@@ -178,7 +179,7 @@ Flag ParseFlag(int argc, char* argv[]){
     };
     
     //Environment
-    if(flag == FLAG_ENVIRONMENT){
+    if(flag == FLAG_ENVIRONMENT || flag == FLAG_ENVIRONMENT_SHORT){
         return Environment;
     };
     
@@ -305,3 +306,12 @@ string GetLang(){
   
   return "";
 }
+
+//graveyard / notes:
+
+//i *think* you were supposed to say -p to tell it to set the port and then
+    // -e to tell it to look at the evironment.
+    //like: setport -p -e THE_ENV_PORT
+    //which makes the logic a bit more difficult.
+    //if you look at the co5 requirements you will see what is meant.
+    //but, I just added --environment for now, not changing the logic.
