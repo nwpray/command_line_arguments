@@ -1,0 +1,5 @@
+The flag provided was invalid.
+Invalid amount of parameters was provided.
+Invalid port number.
+Uh oh... Something happend that I can't figure out. Sorry!
+Listening on port

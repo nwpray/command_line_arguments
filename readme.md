@@ -6,13 +6,14 @@
 * 1.1 - Change Order 1
 * 1.2 - Change Order 2
 * 1.3 - Change Order 3
+* 1.5 - Change Order 5
 
 ## Installation
 
 For installation, run
 `./install.sh`
 in the terminal from within the latest versions directory.
-As of this documents last update it will be 1.3
+As of this documents last update it will be 1.5
 
 If you get the response, 
 `bash: ./install.sh: Permission denied`
@@ -37,7 +38,7 @@ in the terminal after installation
 To uninstall the program and its aliases, run
 `./uninstall.sh`
 from the terminal from the same directory you ran the install script from
-As of this document, the latest version is 1.3
+As of this document, the latest version is 1.5
 
 If you get the response
 `./uninstall.sh`
