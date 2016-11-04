@@ -43,7 +43,7 @@ int main(int argc,  char* argv[]){
     RunTest("./setport -v", "version.txt", CODE_SUCCESS);
     RunTest("./setport --version", "version.txt", CODE_SUCCESS);
     RunTest("./setport -e", "tests/success_env.txt", CODE_SUCCESS);
-    RunTest("./setport --environment", "tests/success_env.txt", CODE_SUCCESS); //co5 epj change
+    RunTest("./setport --environment", "tests/success_env.txt", CODE_SUCCESS); //co5 epj added
     RunTest("./setport -p 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport --port 4040", "tests/success.txt", CODE_SUCCESS);
     RunTest("./setport help", "tests/err_invalid_flag.txt", CODE_FAIL);
@@ -65,7 +65,7 @@ int main(int argc,  char* argv[]){
     RunTest("./setport -v 444", "tests/err_param_count.txt", CODE_FAIL);
     RunTest("./setport --version 444", "tests/err_param_count.txt", CODE_FAIL);
     RunTest("./setport -e 444", "tests/err_invalid_port.txt", CODE_FAIL);
-    RunTest("./setport --environment 445", "tests/err_invalid_port.txt", CODE_FAIL); //co5 epj change
+    RunTest("./setport --environment 445", "tests/err_invalid_port.txt", CODE_FAIL); //co5 epj added
     
     
     //Remove the temporary file
@@ -79,7 +79,7 @@ void RunTest(string command, string check, int checkCode){
     
     //Setport
     int statusCode = system((command + " > " + path + "/" + TEMP_FILE_NAME).c_str()) / 256;
-    cout << command + " code  : " << ((statusCode == checkCode) ? "Success" : "Fail") << endl;
+    cout << command + " code  : " << ((statusCode == checkCode) ? "Success" : "Fail") << endl; //co5 epj changed spaces for readability
     
     ifstream reader(path + "/lang/" + lang + "/" + check);
     

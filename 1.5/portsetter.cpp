@@ -2,6 +2,7 @@
     Command Line Arguments and Gathering Requirements
     Nick Pray
     CS-3370
+    co5 by epj
 */
 #include <iostream>
 #include <fstream>
@@ -30,8 +31,8 @@ const string FLAG_ABOUT_SHORT = "-!";
 const string FLAG_VERSION = "--version";
 const string FLAG_VERSION_SHORT = "-v";
 
-const string FLAG_ENVIRONMENT= "--environment"; //co5 epj change
-const string FLAG_ENVIRONMENT_SHORT= "-e";      //co5 epj change
+const string FLAG_ENVIRONMENT= "--environment"; //co5 epj change added --env
+const string FLAG_ENVIRONMENT_SHORT= "-e";      //co5 epj change renamed -e to _short
 
 const string ERROR_PREFIX = "![ERROR]! - ";
 
@@ -179,7 +180,7 @@ Flag ParseFlag(int argc, char* argv[]){
     };
     
     //Environment
-    if(flag == FLAG_ENVIRONMENT || flag == FLAG_ENVIRONMENT_SHORT){              //co5 epj change
+    if(flag == FLAG_ENVIRONMENT || flag == FLAG_ENVIRONMENT_SHORT){              //co5 epj change added _short
         return Environment;
     };
     
