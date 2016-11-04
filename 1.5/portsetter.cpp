@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
     lang = GetLang();
     
     if(lang == ""){
-        cout << "No valid language defined, using English." << endl;
+        cout << "No valid language defined, using English." << endl; //co5 epj this text needs to be the same as in tests.cpp
         lang = "en";
     }
     

@@ -18,16 +18,20 @@ int CODE_SUCCESS = 0;
 const int CODE_FAIL = 1;
 
 const string TEMP_FILE_NAME = "__temp";
+const string BOOL_FILE_NAME = "__boolCheck";                        //co5 epj added (if no lang, add the no lang string, shown below.)
 
 string lang, path;
+string badLangString = "No valid language defined, using English."; //co5 epj this text needs to be the same as in setport.cpp
+bool badLangBool = false;                                           //co5 epj added to check for no lang.
 
 int main(int argc,  char* argv[]){
     
     lang = GetLang();
     
     if(lang == ""){
-        cout << "No language defined, using English." << endl;
+        cout << badLangString << endl;
         lang = "en";
+        badLangBool = true;
     }
     
     //Get this files path
@@ -70,29 +74,41 @@ int main(int argc,  char* argv[]){
     
     //Remove the temporary file
     //system(("rm " + path + "/" + TEMP_FILE_NAME).c_str());
+      
+    system("rm __temp __boolCheck");                            //co5 epj added to remove temp files.
     
 }
 
 void RunTest(string command, string check, int checkCode){
     
     string temp;
+    string fileNameToCheck = path + "/lang/" + lang + "/" + check;
     
     //Setport
     int statusCode = system((command + " > " + path + "/" + TEMP_FILE_NAME).c_str()) / 256;
     cout << command + " code  : " << ((statusCode == checkCode) ? "Success" : "Fail") << endl; //co5 epj changed spaces for readability
     
-    ifstream reader(path + "/lang/" + lang + "/" + check);
+    ifstream reader(fileNameToCheck);
+    ofstream checkFileWithBool(BOOL_FILE_NAME);
     
     if(!reader.good()){
         cout << "Missing " + lang + " translation test for '" + lang + "/" + check + "'." << endl;
     }
     else{
-        statusCode = system(("diff " + path + "/" + TEMP_FILE_NAME + " " + path + "/lang/" + lang + "/" + check  + " > /dev/null").c_str()) / 256;
+        
+        //co5 epj added so no lang error is fixed
+        if (badLangBool){
+            checkFileWithBool << badLangString << endl;
+        }
+        string catString = "cat " + fileNameToCheck + " >> " + BOOL_FILE_NAME;
+        system(catString.c_str());
+        
+        statusCode = system(("diff " + path + "/" + TEMP_FILE_NAME + " " + BOOL_FILE_NAME + " > /dev/null").c_str()) / 256; //co5 epj changed for readability
         cout << command + " output: " << ((statusCode == CODE_SUCCESS) ? "Success" : "Fail") << endl;
     }
     
     reader.close();
-    
+    checkFileWithBool.close();
 }
 
 string GetLang(){
@@ -130,7 +146,7 @@ string GetLang(){
     else continue;
     
   }
-  
+
   return "";
 }
 
@@ -138,3 +154,6 @@ string GetLang(){
 
 //these tests RELY on the fact that there is a lang set.
 //if not, it adds in the "defaulting to english" line. and tests fail.
+//FIXED! you're welcome.
+
+//the env tests also RELY on 8080 as the PORT value in env.
